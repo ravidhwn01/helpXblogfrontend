@@ -5,13 +5,13 @@ import { blogInterface } from "../schemas/blog.schema";
 
 function GetAllBlogs() {
   const { data } = useQuery("getblog", () => getBlog());
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <Heading>
-        {data?.map((blogs: blogInterface) => {
+        {data?.map((blogs: blogInterface, index: number) => {
           return (
-            <div>
+            <div key={index}>
               <h2> {blogs.title} </h2>
               <p> {blogs.blogbody} </p>
             </div>
